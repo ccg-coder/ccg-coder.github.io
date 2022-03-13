@@ -145,6 +145,365 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/13/%E5%85%8B%E9%9A%86%E5%9B%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一只量子猪">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一只量子猪的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/13/%E5%85%8B%E9%9A%86%E5%9B%BE/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-13 11:50:01 / 修改时间：10:56:33" itemprop="dateCreated datePublished" datetime="2022-03-13T11:50:01+08:00">2022-03-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="克隆图"><a href="#克隆图" class="headerlink" title="克隆图"></a>克隆图</h1><h2 id="1-考察知识"><a href="#1-考察知识" class="headerlink" title="1.考察知识"></a>1.考察知识</h2><ul>
+<li>图遍历</li>
+<li>图</li>
+<li>哈希表</li>
+</ul>
+<h2 id="2-思路"><a href="#2-思路" class="headerlink" title="2. 思路"></a>2. 思路</h2><blockquote>
+<p>1.为了完成深拷贝，需要知道原图的所有信息，所以要先通过遍历</p>
+<p>2.遍历过程中要考虑到重复访问节点的情况，把两个节点之间的无向边换成双向的有向边，并且记录已经遍历过的节点防止死循环</p>
+<p>3.在遍历过程中创造克隆节点并赋值</p>
+</blockquote>
+<h2 id="3-代码"><a href="#3-代码" class="headerlink" title="3.代码"></a>3.代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> Node <span class="title function_">cloneGraph</span><span class="params">(Node node)</span> &#123;</span><br><span class="line">        <span class="comment">//建值都是node,记录是否经过的</span></span><br><span class="line">        Map&lt;Node, Node&gt; check = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">return</span> dfs(node, check);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Node <span class="title function_">dfs</span><span class="params">(Node node, Map&lt;Node,Node&gt; check)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">//判断是否已经经过这个点，若经过则返回克隆jei</span></span><br><span class="line">        <span class="keyword">if</span> (check.containsKey(node)) <span class="keyword">return</span> check.get(node);</span><br><span class="line">        <span class="type">Node</span> <span class="variable">cloneNode</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Node</span>(node.val, <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;());</span><br><span class="line">        check.put(node, cloneNode);</span><br><span class="line">        <span class="comment">//遍历该节点的邻居并更新克隆节点的邻居列表</span></span><br><span class="line">        <span class="keyword">for</span> (Node n : node.neighbors)</span><br><span class="line">            cloneNode.neighbors.add(dfs(n,check));</span><br><span class="line">        <span class="keyword">return</span> cloneNode;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/13/%E5%89%8D%E7%BC%80%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一只量子猪">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一只量子猪的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/13/%E5%89%8D%E7%BC%80%E6%A0%91/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-13 11:50:01 / 修改时间：11:13:15" itemprop="dateCreated datePublished" datetime="2022-03-13T11:50:01+08:00">2022-03-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="实现-Trie-前缀树"><a href="#实现-Trie-前缀树" class="headerlink" title="实现 Trie (前缀树)"></a>实现 Trie (前缀树)</h1><h2 id="1-前缀树含义"><a href="#1-前缀树含义" class="headerlink" title="1. 前缀树含义"></a>1. 前缀树含义</h2><blockquote>
+<p><strong>前缀树</strong> 是一种树形数据结构，用于高效地存储和检索字符串数据集中的键。这一数据结构有相当多的应用情景，例如自动补完和拼写检查。</p>
+</blockquote>
+<p><strong>前缀树又称字典树，顾名思义，可以用它来存储字符串</strong></p>
+<p><strong>可以用两个参数来表示：指向子节点的指针数组  children[]   和表示是否为字符结尾的  isEnd</strong></p>
+<p>children数组指向的是前缀树的下一个节点，它的大小由构成字符串的字符的种类决定，它的索引就可以表示当前节点代表的字符（因为索引与字符是一一对应的）。</p>
+<h2 id="2-思路"><a href="#2-思路" class="headerlink" title="2. 思路"></a>2. 思路</h2><p><strong>创建前缀树</strong></p>
+<p>只需要开辟一个新的children空间，把isEnd设定为false</p>
+<p><strong>插入</strong></p>
+<p>逐个获取传入单词的各个字符，从根节点开始插入，如果子节点已经存在，就继续下个子节点，如果子节点不存在，创建一个新的子节点放入字符即可</p>
+<p><strong>查询</strong></p>
+<p>查询有三种结果</p>
+<p>传入单词不能与前缀树中字段匹配</p>
+<p>传入单词是其中的前缀</p>
+<p>传入单词是其中之一</p>
+<h2 id="3-代码"><a href="#3-代码" class="headerlink" title="3. 代码"></a>3. 代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Trie</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Trie[] children;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> isEnd;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Trie</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 每个节点开辟26个空间，每个字母都可能成为前缀字母</span></span><br><span class="line">        children = <span class="keyword">new</span> <span class="title class_">Trie</span>[<span class="number">26</span>];</span><br><span class="line">        isEnd = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insert</span><span class="params">(String word)</span> &#123;</span><br><span class="line">        <span class="comment">// 讲node指针指向当前对象的头节点</span></span><br><span class="line">        <span class="type">Trie</span> <span class="variable">node</span> <span class="operator">=</span> <span class="built_in">this</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; word.length(); i++) &#123;</span><br><span class="line">            <span class="type">char</span> <span class="variable">ch</span> <span class="operator">=</span> word.charAt(i);</span><br><span class="line">            <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> ch - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">            <span class="comment">//分两种情况，如果当前字母已经存入树，就直接指向孩子</span></span><br><span class="line">            <span class="comment">//否则就开辟新空间</span></span><br><span class="line">            <span class="keyword">if</span> (node.children[index] == <span class="literal">null</span>) &#123;</span><br><span class="line">                node.children[index] = <span class="keyword">new</span> <span class="title class_">Trie</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            node = node.children[index];</span><br><span class="line">        &#125;</span><br><span class="line">        node.isEnd = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">search</span><span class="params">(String word)</span> &#123;</span><br><span class="line">        <span class="type">Trie</span> <span class="variable">node</span> <span class="operator">=</span> searchPrefix(word);</span><br><span class="line">        <span class="keyword">if</span> (node != <span class="literal">null</span> &amp;&amp; node.isEnd) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">startsWith</span><span class="params">(String word)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (searchPrefix(word) != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Trie <span class="title function_">searchPrefix</span><span class="params">(String word)</span> &#123;</span><br><span class="line">        <span class="type">Trie</span> <span class="variable">node</span> <span class="operator">=</span> <span class="built_in">this</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; word.length(); i++) &#123;</span><br><span class="line">            <span class="type">char</span> <span class="variable">ch</span> <span class="operator">=</span> word.charAt(i);</span><br><span class="line">            <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> ch - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span> (node.children[index] == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="comment">//为空时表示该单词不存在于前缀树</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            node = node.children[index];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/13/%E5%93%B2%E5%AD%A6%E5%AE%B6%E8%BF%9B%E9%A4%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一只量子猪">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一只量子猪的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/13/%E5%93%B2%E5%AD%A6%E5%AE%B6%E8%BF%9B%E9%A4%90/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-13 11:50:01 / 修改时间：11:20:21" itemprop="dateCreated datePublished" datetime="2022-03-13T11:50:01+08:00">2022-03-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="哲学家进餐"><a href="#哲学家进餐" class="headerlink" title="哲学家进餐"></a>哲学家进餐</h1><ul>
+<li>考察重点：<strong>如何避免死锁</strong></li>
+</ul>
+<h2 id="1-思路"><a href="#1-思路" class="headerlink" title="1. 思路"></a>1. 思路</h2><p>进餐：同时拿起两个叉子</p>
+<p>思考：不占用资源</p>
+<p>所以，每名哲学家和他的邻居对中间叉子的访问是互斥关系</p>
+<p>将哲学家编号为 i ，则第 i 名哲学家旁边的叉子编号为 i 和 （i+1）%5</p>
+<p>只要不让五个人都拿起一个叉子就不会死锁，所以进程开始后，使他们开始抢叉子，当有人没有抢到叉子或者只抢到一把叉子时，放下手里的叉子，并不再抢，这样一定可以有人可以抢到两把叉子，完成进餐之后放下叉子，并且允许一个人重新开始抢，这样就可以保证每一次抢都能有一个或两个人可以进餐</p>
+<h2 id="2-代码"><a href="#2-代码" class="headerlink" title="2. 代码"></a>2. 代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">DiningPhilosophers</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//在这里设定五个信号量表示五个叉子</span></span><br><span class="line">    <span class="keyword">final</span> Semaphore[] forks = &#123;<span class="keyword">new</span> <span class="title class_">Semaphore</span>(<span class="number">1</span>),<span class="keyword">new</span> <span class="title class_">Semaphore</span>(<span class="number">1</span>),</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Semaphore</span>(<span class="number">1</span>),<span class="keyword">new</span> <span class="title class_">Semaphore</span>(<span class="number">1</span>),<span class="keyword">new</span> <span class="title class_">Semaphore</span>(<span class="number">1</span>)&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设定一个信号量用来约束</span></span><br><span class="line">    <span class="keyword">final</span> <span class="type">Semaphore</span> <span class="variable">lock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Semaphore</span>(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">DiningPhilosophers</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设定线程状态</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">wantsToEat</span><span class="params">(<span class="type">int</span> philosopher,</span></span><br><span class="line"><span class="params">                           Runnable pickLeftFork,</span></span><br><span class="line"><span class="params">                           Runnable pickRightFork,</span></span><br><span class="line"><span class="params">                           Runnable eat,</span></span><br><span class="line"><span class="params">                           Runnable putLeftFork,</span></span><br><span class="line"><span class="params">                           Runnable putRightFork)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (forks[philosopher%<span class="number">5</span>].tryAcquire(<span class="number">1</span>)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (forks[(philosopher+<span class="number">1</span>)%<span class="number">5</span>].tryAcquire(<span class="number">1</span>))&#123;</span><br><span class="line">                    pickLeftFork.run();</span><br><span class="line">                    pickRightFork.run();</span><br><span class="line">                    eat.run();</span><br><span class="line">                    putLeftFork.run();</span><br><span class="line">                    putRightFork.run();</span><br><span class="line">                    forks[philosopher%<span class="number">5</span>].release(<span class="number">1</span>);</span><br><span class="line">                    forks[(philosopher+<span class="number">1</span>)%<span class="number">5</span>].release(<span class="number">1</span>);</span><br><span class="line">                    <span class="comment">// 当一个人吃完 后唤醒一个被惩罚的人</span></span><br><span class="line">                    lock.release(<span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    forks[philosopher%<span class="number">5</span>].release(<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 只要有一个叉子抢不过的需要接受惩罚 堵塞</span></span><br><span class="line">            lock.acquire(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/13/%E6%9C%80%E5%B0%8F%E5%8C%BA%E9%97%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一只量子猪">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一只量子猪的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/13/%E6%9C%80%E5%B0%8F%E5%8C%BA%E9%97%B4/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-13 11:50:01" itemprop="dateCreated datePublished" datetime="2022-03-13T11:50:01+08:00">2022-03-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-12 23:29:53" itemprop="dateModified" datetime="2022-03-12T23:29:53+08:00">2022-03-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="最小区间"><a href="#最小区间" class="headerlink" title="最小区间"></a>最小区间</h1><h2 id="1-思路"><a href="#1-思路" class="headerlink" title="1. 思路"></a>1. 思路</h2><p><strong>用了贪心，堆的思想</strong></p>
+<p>根据题目可得，为了让区间越小越好，所以一定是从小往大遍历。</p>
+<p>大致思路是：</p>
+<ol>
+<li><p>假如给定了n个列表，<strong>从头开始，先在最开始的n个数中搜索出最小和最大值</strong>，这样的区间是一定保证包含全部n个列表的，<strong>然后在最小值所在的列表，往后查询一位</strong>，然后再找出新的最大最小值，重复上述操作，这样可以保证区间在包含所有列表的情况下，逐渐缩小</p>
+</li>
+<li><p><strong>可以使用小根堆大根堆得到最大最小值</strong>，但是要注意，每一回在小根堆取到最小值后，应该把他从中删除，否则该最小值会影响比他大一点的新的最小值的出现</p>
+</li>
+<li><p>最后，当最小值一直移动，<strong>直到移动到对应列表的最后</strong>，此时无论移动其他任何哪一个列表中的数都不会比现在的区间更小</p>
+</li>
+</ol>
+<h2 id="2-代码"><a href="#2-代码" class="headerlink" title="2. 代码"></a>2. 代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] smallestRange(List&lt;List&lt;Integer&gt;&gt; nums) &#123;</span><br><span class="line">        <span class="type">int</span>[] ans=<span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">2</span>];</span><br><span class="line">        ans[<span class="number">0</span>]=-<span class="number">100000</span>;</span><br><span class="line">        ans[<span class="number">1</span>]=<span class="number">100000</span>;</span><br><span class="line">        <span class="type">int</span> n=nums.size();</span><br><span class="line">        <span class="comment">//大根堆，用来求最大值 [0]:第几个列表 [1]:列表中索引 [2]:数值</span></span><br><span class="line">        PriorityQueue&lt;<span class="type">int</span>[]&gt; maxHeap=<span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;((a,b)-&gt;(b[<span class="number">2</span>]-a[<span class="number">2</span>]));</span><br><span class="line">        <span class="comment">//小根堆，用来求最小值</span></span><br><span class="line">        PriorityQueue&lt;<span class="type">int</span>[]&gt; minHeap=<span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;((a,b)-&gt;(a[<span class="number">2</span>]-b[<span class="number">2</span>]));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//初始时刻，向2个堆里面存数据</span></span><br><span class="line">        <span class="type">int</span> k=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(List&lt;Integer&gt; x:nums)&#123;</span><br><span class="line">            <span class="comment">//放入每一个区间的第一个值</span></span><br><span class="line">            maxHeap.offer(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;k,<span class="number">0</span>,x.get(<span class="number">0</span>)&#125;);</span><br><span class="line">            minHeap.offer(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;k++,<span class="number">0</span>,x.get(<span class="number">0</span>)&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">            <span class="comment">//取出最大值和最小值，与现有区间比较</span></span><br><span class="line">            <span class="type">int</span>[] max=maxHeap.peek();</span><br><span class="line">            <span class="type">int</span>[] min=minHeap.poll();</span><br><span class="line">            <span class="type">int</span> value=(max[<span class="number">2</span>]-min[<span class="number">2</span>])-(ans[<span class="number">1</span>]-ans[<span class="number">0</span>]);</span><br><span class="line">            <span class="comment">//范围更小或者（范围相同但是当前最小值小于范围的最小值）</span></span><br><span class="line">            <span class="keyword">if</span>(value&lt;<span class="number">0</span>||(value==<span class="number">0</span>&amp;&amp;min[<span class="number">2</span>]&lt;ans[<span class="number">0</span>]))&#123;</span><br><span class="line">                <span class="comment">//更新最小区间</span></span><br><span class="line">                ans[<span class="number">0</span>]=min[<span class="number">2</span>];</span><br><span class="line">                ans[<span class="number">1</span>]=max[<span class="number">2</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//移动最小元素的指针，指向下一个数</span></span><br><span class="line">            <span class="comment">//如果最小数已经到达右边界，结束循环</span></span><br><span class="line">            <span class="keyword">if</span>(min[<span class="number">1</span>]+<span class="number">1</span>==nums.get(min[<span class="number">0</span>]).size())&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//获得min下一个的值</span></span><br><span class="line">            <span class="type">int</span> next=nums.get(min[<span class="number">0</span>]).get(min[<span class="number">1</span>]+<span class="number">1</span>);</span><br><span class="line">            minHeap.offer(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;min[<span class="number">0</span>],min[<span class="number">1</span>]+<span class="number">1</span>,next&#125;);</span><br><span class="line">            maxHeap.offer(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;min[<span class="number">0</span>],min[<span class="number">1</span>]+<span class="number">1</span>,next&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/13/%E5%A4%A9%E9%99%85%E7%BA%BF%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一只量子猪">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一只量子猪的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/13/%E5%A4%A9%E9%99%85%E7%BA%BF%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-13 11:50:01 / 修改时间：11:45:51" itemprop="dateCreated datePublished" datetime="2022-03-13T11:50:01+08:00">2022-03-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="天际线问题"><a href="#天际线问题" class="headerlink" title="天际线问题"></a>天际线问题</h1><h2 id="1-思路"><a href="#1-思路" class="headerlink" title="1. 思路"></a>1. 思路</h2><p><strong>扫描线算法</strong></p>
+<ul>
+<li>依次扫描建筑物的左边缘线和右边缘线，当遇到建筑物的左边缘线时，将建筑物高度压入大根堆，当遇到建筑物右边缘线时，将该建筑物的高度从当前堆弹出</li>
+<li>操作完之后，就可以根据堆内的最大值是否变化来判断是否遇到关键点</li>
+</ul>
+<p><strong>区分建筑物的左右边缘线</strong></p>
+<ul>
+<li>将左端点的高度设为负数，右端点设为正数</li>
+</ul>
+<h2 id="2-代码"><a href="#2-代码" class="headerlink" title="2. 代码"></a>2. 代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; <span class="title function_">getSkyline</span><span class="params">(<span class="type">int</span>[][] buildings)</span> &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; points = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">//求出左上角和右下角坐标，左上角坐标存负数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span>[] b : buildings) &#123;</span><br><span class="line">            points.add(Arrays.asList(b[<span class="number">0</span>], -b[<span class="number">2</span>]));</span><br><span class="line">            points.add(Arrays.asList(b[<span class="number">1</span>], b[<span class="number">2</span>]));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将所有坐标排序</span></span><br><span class="line">        points.sort(</span><br><span class="line">                (o1, o2) -&gt; &#123;</span><br><span class="line">                    <span class="type">int</span> <span class="variable">x1</span> <span class="operator">=</span> o1.get(<span class="number">0</span>), y1 = o1.get(<span class="number">1</span>);</span><br><span class="line">                    <span class="type">int</span> <span class="variable">x2</span> <span class="operator">=</span> o2.get(<span class="number">0</span>), y2 = o2.get(<span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">if</span> (x1 != x2) <span class="keyword">return</span> x1 - x2;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">return</span> y1 - y2;</span><br><span class="line">                &#125;);</span><br><span class="line"></span><br><span class="line">        Queue&lt;Integer&gt; queue = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;((o1, o2) -&gt; o2 - o1);</span><br><span class="line">        <span class="comment">//拿到第一个关键点</span></span><br><span class="line">        queue.offer(<span class="number">0</span>);</span><br><span class="line">        <span class="comment">//前一个堆内的最大元素</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">preMax</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (List&lt;Integer&gt; p : points) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> p.get(<span class="number">0</span>), y = p.get(<span class="number">1</span>);</span><br><span class="line">            <span class="comment">//左上角坐标</span></span><br><span class="line">            <span class="keyword">if</span> (y &lt; <span class="number">0</span>) queue.offer(-y);</span><br><span class="line">            <span class="comment">//右上角坐标</span></span><br><span class="line">            <span class="keyword">else</span> queue.remove(y);</span><br><span class="line">            <span class="type">int</span> <span class="variable">curMax</span> <span class="operator">=</span> queue.peek();</span><br><span class="line">            <span class="comment">//如果最大值更新，当前结果就是关键点</span></span><br><span class="line">            <span class="keyword">if</span> (curMax != preMax) &#123;</span><br><span class="line">                res.add(Arrays.asList(x, curMax));</span><br><span class="line">                preMax = curMax;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/06/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -426,7 +785,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
